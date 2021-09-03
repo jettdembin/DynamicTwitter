@@ -45,3 +45,31 @@ var user2 = {
         }
     ]
 };
+var sum = 0;
+var tweetCount = [];
+var container = document.getElementById('container');
+var headerCntr = document.getElementById('header-cntr');
+var header = document.createElement('div');
+header.innerHTML = `
+    <h1 class="display-name">${user1.displayName}</h1>
+    <h2 class="tweets">
+        ${user1.tweets.map((tweet, sum) => {
+            // get number of tweets
+            tweetCount.push(sum)
+            console.log(tweetCount);
+            return `${Number(tweetCount.slice(-1)) + 1}`
+        }).slice(-1)} Tweets
+    </h2>`;
+headerCntr.appendChild(header);
+
+
+
+
+var xhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("demo").innerHTML = this.responseText;
+    }
+};
+xmlhttp.open("GET", "xmlhttp_info.txt", true);
+xmlhttp.send(); 
