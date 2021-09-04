@@ -61,7 +61,22 @@ header.innerHTML = `
         }).slice(-1)} Tweets
     </h2>`;
 headerCntr.appendChild(header);
+// image container for profile pic and large background
+var coverCntr = document.getElementById("cover-cntr");
+var cover = document.createElement('div');
+cover.classList.add('cover');
+cover.innerHTML = `
+    <div class="img-cntr">
+        <img class="img1" src="${user1.coverPhotoURL}">
+        <img class="img2" src="${user1.avatarURL}">
+    </div>
+    <div class="btn-cntr">
+        <button class="btn">Follow</button>
+    </div>
+`;
+coverCntr.appendChild(cover);
 
+//
 
 
 
