@@ -76,6 +76,12 @@ cover.innerHTML = `
 `;
 coverCntr.appendChild(cover);
 
+var profileDetails = document.getElementById("profile-details");
+var profile = document.createElement('div');
+profile.classList.add("profile");
+profile.innerHTML= `
+`;
+
 //
 
 
