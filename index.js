@@ -80,7 +80,78 @@ var profileDetails = document.getElementById("profile-details");
 var profile = document.createElement('div');
 profile.classList.add("profile");
 profile.innerHTML= `
+        <div class="profile-cntr">
+            <div class="display-name2"
+                <h1>${user1.displayName}</h1>
+                <h2>@${user1.displayName.toLowerCase().split(" ").join("")}</h2>
+            </div>
+            <h2 class="join"> Joined ${user1.joinedDate}</h2>
+            <div class="follow-cntr">
+                <h1>${user1.followingCount}<h1>
+                <h2>Following</h2>
+                <h1>${abbreviate(user1.followerCount)}<h1>
+                <h2>Followers</h2>
+            </div>
+        </div>
 `;
+profileDetails.appendChild(profile);
+
+function abbreviate(number, maxPlaces, forcePlaces, forceLetter) {
+    number = Number(number)
+    forceLetter = forceLetter || false
+    if(forceLetter !== false) {
+      return annotate(number, maxPlaces, forcePlaces, forceLetter)
+    }
+    var abbr
+    if(number >= 1e12) {
+      abbr = 'T'
+    }
+    else if(number >= 1e9) {
+      abbr = 'B'
+    }
+    else if(number >= 1e6) {
+      abbr = 'M'
+    }
+    else if(number >= 1e3) {
+      abbr = 'K'
+    }
+    else {
+      abbr = ''
+    }
+    return annotate(number, maxPlaces, forcePlaces, abbr)
+}
+  
+function annotate(number, maxPlaces, forcePlaces, abbr) {
+    // set places to false to not round
+    var rounded = 0
+    switch(abbr) {
+      case 'T':
+        rounded = number / 1e12
+        break
+      case 'B':
+        rounded = number / 1e9
+        break
+      case 'M':
+        rounded = number / 1e6
+        break
+      case 'K':
+        rounded = number / 1e3
+        break
+      case '':
+        rounded = number
+        break
+    }
+    if(maxPlaces !== false) {
+      var test = new RegExp('\\.\\d{' + (maxPlaces + 1) + ',}$')
+      if(test.test(('' + rounded))) {
+        rounded = rounded.toFixed(maxPlaces)
+      }
+    }
+    if(forcePlaces !== false) {
+      rounded = Number(rounded).toFixed(forcePlaces)
+    }
+    return rounded + abbr
+}
 
 //
 
