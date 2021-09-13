@@ -73,7 +73,7 @@ var cover = document.createElement('div');
 cover.classList.add('cover');
 cover.innerHTML = `
     <div class="img-cntr">
-        <img class="img1" src="${user1.coverPhotoURL}">
+        <img class="img1-1" src="${user1.coverPhotoURL}">
         <img class="img2" src="${user1.avatarURL}">
     </div>
     <div class="btn-cntr">
@@ -106,28 +106,44 @@ profileDetails.appendChild(profile);
 var navTweets = document.getElementById("nav-tweets");
 var tweets = document.createElement('div');
 tweets.innerHTML = `
-    <div class="nav" id="tweets">Tweets</div>
+    <div class="nav-item" id="tweets">Tweets</div>
 `;
 navTweets.appendChild(tweets);
 //function to add tweets if clicked on
-var tweets = document.getElementById("tweets")
+var tweetsInfo = document.getElementById("tweets");
+tweetsInfo.addEventListener('click', function() {
+    var tweet = document.createElement('div');
+    tweet.innerHTML = `
+        <article>
+            <img class="img1" src="${user1.avatarURL}">
+            <div class="tweet-header">
+                <div>${user1.displayName}</div>
+                <div>${user1.userName}</div>
+                <div>${user1.tweets[0][1]}</div>
+                <img
+            </div>
+        </article>
+        <div>${user1.displayName}</div>
+    `;
+    container.appendChild(tweet);
+});
 
 
 var tweetsReplies = document.createElement('div');
 tweetsReplies.innerHTML = `
-    <div class="nav" id="tweets-replies">Tweets & replies</div>
+    <div class="nav-item" id="tweets-replies">Tweets & replies</div>
 `;
 navTweets.appendChild(tweetsReplies);
 
 var media = document.createElement('div');
 media.innerHTML = `
-    <div class="nav" id="media">Media</div>
+    <div class="nav-item" id="media">Media</div>
 `;
 navTweets.appendChild(media);
 
 var likes = document.createElement('div');
 likes.innerHTML = `
-    <div class="nav" id="likes">Likes</div>
+    <div class="nav-item" id="likes">Likes</div>
 `;
 navTweets.appendChild(likes);
 
