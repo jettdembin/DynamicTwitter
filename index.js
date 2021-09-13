@@ -51,15 +51,21 @@ var container = document.getElementById('container');
 var headerCntr = document.getElementById('header-cntr');
 var header = document.createElement('div');
 header.innerHTML = `
-    <h1 class="display-name">${user1.displayName}</h1>
-    <h2 class="tweets">
-        ${user1.tweets.map((tweet, sum) => {
-            // get number of tweets
-            tweetCount.push(sum)
-            console.log(tweetCount);
-            return `${Number(tweetCount.slice(-1)) + 1}`
-        }).slice(-1)} Tweets
-    </h2>`;
+    <div class="header-cntr">
+        arrow
+        <div class="name-cntr"
+            <h1 class="name">${user1.displayName}</h1>
+            <h2 class="tweets">
+                ${user1.tweets.map((tweet, sum) => {
+                    // get number of tweets
+                    tweetCount.push(sum)
+                    console.log(tweetCount);
+                    return `${Number(tweetCount.slice(-1)) + 1}`
+                }).slice(-1)} Tweets
+            </h2>
+        </div>
+    </div>
+    `;
 headerCntr.appendChild(header);
 // image container for profile pic and large background
 var coverCntr = document.getElementById("cover-cntr");
@@ -80,22 +86,54 @@ var profileDetails = document.getElementById("profile-details");
 var profile = document.createElement('div');
 profile.classList.add("profile");
 profile.innerHTML= `
-        <div class="profile-cntr">
-            <div class="display-name2"
-                <h1>${user1.displayName}</h1>
-                <h2>@${user1.displayName.toLowerCase().split(" ").join("")}</h2>
-            </div>
-            <h2 class="join"> Joined ${user1.joinedDate}</h2>
-            <div class="follow-cntr">
-                <h1>${user1.followingCount}<h1>
-                <h2>Following</h2>
-                <h1>${abbreviate(user1.followerCount)}<h1>
-                <h2>Followers</h2>
-            </div>
+    <div class="profile-cntr">
+        <div class="display-name2"
+            <h1>${user1.displayName}</h1>
+            <h2>@${user1.displayName.toLowerCase().split(" ").join("")}</h2>
         </div>
+        <h2 class="join">🕛 Joined ${user1.joinedDate}</h2>
+        <div class="follow-cntr">
+            <h1>${user1.followingCount}<h1>
+            <h2>Following</h2>
+            <h1>${abbreviate(user1.followerCount)}<h1>
+            <h2>Followers</h2>
+        </div>
+    </div>
 `;
 profileDetails.appendChild(profile);
 
+//nav bar for tweets, media, tweets and replies, and likes
+var navTweets = document.getElementById("nav-tweets");
+var tweets = document.createElement('div');
+tweets.innerHTML = `
+    <div class="nav" id="tweets">Tweets</div>
+`;
+navTweets.appendChild(tweets);
+//function to add tweets if clicked on
+var tweets = document.getElementById("tweets")
+
+
+var tweetsReplies = document.createElement('div');
+tweetsReplies.innerHTML = `
+    <div class="nav" id="tweets-replies">Tweets & replies</div>
+`;
+navTweets.appendChild(tweetsReplies);
+
+var media = document.createElement('div');
+media.innerHTML = `
+    <div class="nav" id="media">Media</div>
+`;
+navTweets.appendChild(media);
+
+var likes = document.createElement('div');
+likes.innerHTML = `
+    <div class="nav" id="likes">Likes</div>
+`;
+navTweets.appendChild(likes);
+
+
+
+//function for abbreviation of followers
 function abbreviate(number, maxPlaces, forcePlaces, forceLetter) {
     number = Number(number)
     forceLetter = forceLetter || false
