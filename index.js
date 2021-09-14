@@ -109,24 +109,24 @@ tweets.innerHTML = `
     <div class="nav-item" id="tweets">Tweets</div>
 `;
 navTweets.appendChild(tweets);
+
 //function to add tweets if clicked on
 var tweetsInfo = document.getElementById("tweets");
-tweetsInfo.addEventListener('click', function() {
-    var tweet = document.createElement('div');
-    tweet.innerHTML = `
-        <article>
-            <img class="img1" src="${user1.avatarURL}">
-            <div class="tweet-header">
-                <div>${user1.displayName}</div>
-                <div>${user1.userName}</div>
-                <div>${user1.tweets[0][1]}</div>
-                <img
-            </div>
-        </article>
-        <div>${user1.displayName}</div>
-    `;
-    container.appendChild(tweet);
-});
+// tweetsInfo.addEventListener('click', function() {
+//     var tweet = document.createElement('div');
+//     tweet.innerHTML = `
+//         <article>
+//             <img class="img1" src="${user1.avatarURL}">
+//             <div class="tweet-header">
+//                 <div>${user1.displayName}</div>
+//                 <div>${user1.userName}</div>
+//                 <div>${user1.tweets[0][1]}</div>
+//                 <img
+//             </div>
+//         </article>
+//         <div>${user1.displayName}</div>
+//     `;
+//container.appendChild(tweet);
 
 
 var tweetsReplies = document.createElement('div');
@@ -147,6 +147,37 @@ likes.innerHTML = `
 `;
 navTweets.appendChild(likes);
 
+
+//just adding tweets to fill the page as I am using moc json
+//for now
+var tweet = document.createElement('div');
+tweet.innerHTML = `
+    <article>
+        <img class="img1" src="${user1.avatarURL}">
+        <div class="tweet-cntr">
+            <div class="tweet-header">
+                <div>${user1.displayName}</div>
+                <div>${user1.userName}</div>
+                <div>${user1.tweets[0].timestamp}</div>
+                <div class="dots">
+                    <img src="./assets/3dots.png">
+                </div>
+            </div>
+            <div class="tweet">${user1.tweets[0].text}</div> 
+            <div class="icons">
+                
+            </div>
+        </div>
+    </article>
+`;
+container.appendChild(tweet);
+
+//function to loop through tweets of user and produce the text
+// function userTweets() {
+//     for (let tweet in tweets) {
+//         return tweet
+//     }
+// }
 
 
 //function for abbreviation of followers
