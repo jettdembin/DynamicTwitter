@@ -18,6 +18,10 @@ html, body {
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    font-size: 1.4rem;
+}
+
 h1 {
     font-size: 2rem;
     color: rgb(217, 217, 217);
@@ -31,18 +35,24 @@ h2 {
 
 
 .container {
-    border: 1px solid rgb(61, 65, 69) ;
+    border: 1px solid rgb(61, 65, 69);
     width: 40%;
     height: 100%;
 }
 
 .header-cntr {
-    
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.name-cntr {
+    margin-left: 1rem;
 }
 
 .cover-photo {
     width: 100%;
-    height: 200px;
+    border: 2px solid green;
 }
 
 .cover {
@@ -53,9 +63,14 @@ h2 {
     position: relative;
 }
 
-.img1 {
+.img1-1 {
     width: 100%;
-    background-size: contain;
+}
+
+.img1 {
+    width: 40px;
+    height: 40px;
+    border-radius: 2rem;
 }
 
 .img2 {
@@ -63,7 +78,7 @@ h2 {
     height: 50%;
     display: block;
     border-radius: 100%;
-    border: .25rem solid white;
+    border: .25em solid black;
     background-size: contain;
     position: absolute;
     bottom: -50%;
@@ -78,17 +93,21 @@ h2 {
 }
 
 .btn {
-    margin: .5rem 1rem 0 auto;
-    padding: 5px 20px;
+    font-size: 1.8rem;
+    margin: 1rem 1rem 0 auto;
+    padding: .3em .8em;
     border-radius: 2rem;
     border: none;
     background-color: rgb(239, 243, 244);
-    font-size: 18px;
+}
+
+.profile-details {
+    border: 2px solid purple;
+    padding-bottom: 1em;
 }
 
 .profile-cntr {
     font-size: 1.5rem;
-    padding-left: 1rem;
     border: 1px solid yellow;
 }
 
@@ -115,4 +134,101 @@ h2 {
 .follow-cntr h2:nth-of-type(1) {
     margin-right: 1.5rem;
 }
+
+nav {
+    display: flex;
+    border: 1px solid teal;
+}
+
+.nav-tweets {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.nav-item {
+    background-color: red;
+    text-align: center;
+}
+
+img {
+    pointer-events: none;
+}
+
+article {
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 0 1em;
+    display: flex;
+    border: 1px solid teal;
+}
+
+.tweet-cntr {
+    width: 100%;
+    border: 1px solid rgb(5, 240, 5);
+    display: flex;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tweet-header {
+    width: 100%;
+    display: flex;
+    border: 1px solid red;
+}
+
+.tweet-header h3 {
+    font-size: 1.4rem;
+    font-weight: 900;
+}
+
+.tweet-header h2 {
+    margin-left: .5rem;
+    font-size: 1.4rem;
+}
+
+.tweet {
+    margin-bottom: 1rem;
+}
+
+.ml {
+    margin-left: auto;
+}
+
+.icons-cntr {
+    display: flex;
+}
+
+.icon {
+    border-radius: 2rem;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.mr {
+    margin-right: 10rem;
+}
+
+.icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+
+.icon:hover::after {
+    cursor: pointer;
+    background-color: aqua;
+    opacity: .5;
+}
+
 
